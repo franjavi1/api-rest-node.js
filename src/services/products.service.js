@@ -1,26 +1,27 @@
+//Importa las funciones del modelo
 import * as productModel from "../models/products.model.js";
 
-//obtener todos los productos
-export const getAllProducts= async (category) =>{
-    return await productModel.getAllProducts(category);
+//obtiene todos los productos
+export const getAllProducts= async () =>{
+    return await productModel.getAllProducts();
 }
 
-//Obtener un producto por su id
+//Obtiene un producto por su id
 export const getProductById = async (id) =>{
     return await productModel.getProductById(id);
 }
 
-//Crear un producto
+//Crea un producto
 export const createProduct = async (productData) =>{
     return await productModel.saveProduct(productData);
 }
 
-//Eliminar un producto
+//Elimina un producto
 export const deleteProduct = async (id) =>{
     return await productModel.deleteProduct(id)
 }
 
-//Modificar un producto
+//Modifica un producto
 export const updateProduct = async (id, changes)=>{
     return await productModel.updateProduct(id, changes);
 }

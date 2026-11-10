@@ -1,22 +1,26 @@
+//Importa Router de Express
 import {Router} from 'express'
 
+//Importa los controladores de los productos
 import * as productController from '../controllers/products.controller.js'
 
+//Crea el router de productos
 const router = Router()
 
-//Obtener todos los productos
+//Obtiene todos los productos
 router.get('/', productController.getAllProducts)
 
-//Obtener el producto por su id
+//Obtiene el producto por su id
 router.get('/:id', productController.getProductById)
 
-//Crear un producto
+//Crea un producto
 router.post('/create', productController.createProduct)
 
-//Eliminar un producto
+//Elimina un producto
 router.delete('/:id',productController.deleteProduct)
 
-//Modificar un producto
+//Modifica un producto
 router.patch('/:id',productController.updateProduct)
 
+//Exporta el router
 export default router;

@@ -1,4 +1,4 @@
-
+//Importa Express, CORS y las rutas de la API
 import cors from 'cors'
 
 import express from 'express';
@@ -9,24 +9,27 @@ import authRouter from './src/routes/auth.routes.js';
 
 import { authentication } from './src/middlewares/authentication.js';
 
+
+//Crea la apliacion de Express
 const app = express()
 
-
+//Puerto local
 const PORT = 3000;
 
-
+//Habilita CORS
 app.use(cors());
 
 //Middleware para realizar datos JSON
 app.use(express.json())
 
+//Ruta Publica
 app.use('/auth', authRouter)
 
-//Rutas de productos
+//Rutas de productos protegidas con JWT
 app.use('/api/products', authentication, productsRouter)
 
 
-//Middleware para rutas no encontradas
+//Middleware para rutas no encontradas -> responde 404
 app.use((req,res)=>{
     res.status(404).json({
         error: 'Ruta no encontrada'
